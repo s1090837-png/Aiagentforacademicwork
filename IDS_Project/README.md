@@ -41,3 +41,14 @@ The browser will open automatically. Click **Start Monitoring** to begin.
 
 - If `model/lstm_model.h5` is missing or invalid, the agent will **create and save** a tiny LSTM model on first run (requires TensorFlow).
 - This is a **prototype for academic demos**, not a production IDS.
+
+## Static Demo (No Backend)
+
+If you only need a simple, non-functional website for a classroom demo, open the static HTML page:
+
+```bash
+cd IDS_Project/static_demo
+python -m http.server 8000
+```
+
+Then visit `http://localhost:8000` in your browser. This version is **visual-only** and does not connect to the AI agent.
