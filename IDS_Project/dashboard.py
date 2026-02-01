@@ -6,7 +6,14 @@ from pathlib import Path
 
 import pandas as pd
 import streamlit as st
-from streamlit import st_autorefresh
+
+try:
+    from streamlit import st_autorefresh
+except ImportError:  # pragma: no cover - fallback for older Streamlit versions
+    def st_autorefresh(interval: int = 1000, key: str | None = None) -> None:
+        """Fallback auto-refresh for older Streamlit releases."""
+        time.sleep(interval / 1000)
+        st.experimental_rerun()
 
 from ai_agent import load_agent
 
